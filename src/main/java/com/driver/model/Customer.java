@@ -10,53 +10,51 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int customerId;
-
     private String mobile;
-
     private String password;
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    List<TripBooking> tripBookings = new ArrayList<>();
+    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
+    List<TripBooking> tripBookingList = new ArrayList<>();
 
     public Customer() {
     }
 
-    public Customer(int id, String mobile, String password, List<TripBooking> tripBookings) {
-        this.customerId = id;
+    public Customer(int customerId, String mobile, String password, List<TripBooking> tripBookingList) {
+        this.customerId = customerId;
         this.mobile = mobile;
         this.password = password;
-        this.tripBookings = tripBookings;
+        this.tripBookingList = tripBookingList;
     }
 
-    public int getId() {
+    public int getCustomerId() {
         return customerId;
-    }
-
-    public void setCustomerId(int id) {
-        this.customerId = id;
     }
 
     public String getMobile() {
         return mobile;
     }
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
-
     public String getPassword() {
         return password;
+    }
+
+    public List<TripBooking> getTripBookingList() {
+        return tripBookingList;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public List<TripBooking> getTripBookings() {
-        return tripBookings;
-    }
-
-    public void setTripBookings(List<TripBooking> tripBookings) {
-        this.tripBookings = tripBookings;
+    public void setTripBookingList(List<TripBooking> tripBookingList) {
+        this.tripBookingList = tripBookingList;
     }
 }
