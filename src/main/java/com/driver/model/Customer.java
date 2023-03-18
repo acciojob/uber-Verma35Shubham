@@ -32,7 +32,7 @@ public class Customer {
         return customerId;
     }
 
-    public void setId(int id) {
+    public void setCustomerId(int id) {
         this.customerId = id;
     }
 
